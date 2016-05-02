@@ -30,7 +30,7 @@ def main():
 		return render_template('/end.html')
     return redirect('/next')
 	
-@app.route('/next',methods=['GET','POST'])
+@app.route('/next',methods=['POST'])
 def next():  
     app.currentplot += 1
     return redirect('/index')
