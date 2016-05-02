@@ -22,7 +22,6 @@ def index():
 		if app.currentplot==5:
 			return render_template('p6.html')
 	else:
-		print app.currentplot
 		return redirect('/main')
 
 @app.route('/main')
@@ -32,7 +31,7 @@ def main():
 		return render_template('/end.html')
     return redirect('/next')
 	
-@app.route('/next',methods=['POST'])
+@app.route('/next',methods=['GET','POST'])
 def next():  
     app.currentplot += 1
     return redirect('/index')
