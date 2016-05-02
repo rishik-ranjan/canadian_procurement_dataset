@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.vars = {}
 
 app.currentplot=0
-
+@app.route('/')
 @app.route('/index',methods=['GET','POST'])
 def index():
 	if request.method == 'GET' and app.currentplot<6:
