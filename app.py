@@ -29,7 +29,7 @@ def index():
 def main():
     if app.currentplot==6: 
 		app.currentpot = 0
-		return render_template('end.html')
+		return render_template('/end.html')
     return redirect('/next')
 	
 @app.route('/next',methods=['POST'])
