@@ -8,7 +8,7 @@ app.currentplot=0
 #@app.route('/')
 @app.route('/index',methods=['GET','POST'])
 def index():
-	if request.method == 'GET' and app.currentplot<6:
+	if request.method == 'GET':
 		if app.currentplot==0:
 			return render_template('p1.html')
 		if app.currentplot==1:
@@ -30,10 +30,24 @@ def main():
 		return render_template('/end.html')
     return redirect('/next')
 	
-@app.route('/next',methods=['POST'])
-def next():  
-    app.currentplot += 1
-    return redirect('/index')
+@app.route('/next',methods=['GET','POST'])
+def next(): 
+	if request.method == 'GET':
+		if app.currentplot==0:
+			return render_template('p1.html')
+		if app.currentplot==1:
+			return render_template('p2.html')
+		if app.currentplot==2:
+			return render_template('p3.html')
+		if app.currentplot==3:
+			return render_template('p4.html')
+		if app.currentplot==4:
+			return render_template('p5.html')
+		if app.currentplot==5:
+			return render_template('p6.html')
+	else:
+		app.currentplot += 1
+		return redirect('/main')
 	
 if __name__ == "__main__":
     app.run(debug=True)    
