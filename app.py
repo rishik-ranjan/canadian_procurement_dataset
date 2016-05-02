@@ -27,7 +27,6 @@ def index():
 @app.route('/main')
 def main():
     if app.currentplot==6: 
-		app.currentpot = 0
 		return render_template('/end.html')
     return redirect('/next')
 	
